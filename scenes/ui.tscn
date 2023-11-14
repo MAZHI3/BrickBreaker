@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxc6hqj4n2gwk"]
+[gd_scene load_steps=5 format=3 uid="uid://bxc6hqj4n2gwk"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_8ai1h"]
 [ext_resource type="FontFile" uid="uid://b4pqfbvte11k6" path="res://assets/VT323-Regular.ttf" id="1_yfa2i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6af8i"]
 bg_color = Color(0.345098, 0.647059, 0.560784, 0.901961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueh6p"]
+bg_color = Color(0.596078, 0.505882, 1, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_8ai1h")
@@ -65,4 +68,36 @@ vertical_alignment = 1
 layout_mode = 2
 text = "RESTART GAME"
 
+[node name="LevelWonContainer" type="CenterContainer" parent="."]
+visible = false
+offset_left = 426.0
+offset_top = 174.0
+offset_right = 726.0
+offset_bottom = 474.0
+
+[node name="Panel" type="Panel" parent="LevelWonContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ueh6p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelWonContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="LevelWonContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "YOU HAVE WON THE LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelWonButton" type="Button" parent="LevelWonContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "GO TO NEXT LEVEL"
+
 [connection signal="pressed" from="GameLostContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]
+[connection signal="pressed" from="LevelWonContainer/Panel/VBoxContainer/LevelWonButton" to="." method="_on_level_won_button_pressed"]

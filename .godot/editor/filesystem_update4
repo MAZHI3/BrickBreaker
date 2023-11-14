@@ -5,3 +5,8 @@ res://scenes/wall.tscn
 res://scenes/deathzone.tscn
 res://scenes/ui.tscn
 res://scenes/brick.tscn
+res://scripts/level_definitions.gd
+res://scripts/BrickSpawner.gd
+res://scripts/ui.gd
+res://scripts/ball.gd
+res://scripts/Paddle.gd
