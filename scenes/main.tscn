@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://m5udfqhflbiq"]
+[gd_scene load_steps=15 format=3 uid="uid://m5udfqhflbiq"]
 
 [ext_resource type="PackedScene" uid="uid://clg3861wgvyg1" path="res://scenes/Paddle.tscn" id="1_8e3jq"]
 [ext_resource type="PackedScene" uid="uid://bxc6hqj4n2gwk" path="res://scenes/ui.tscn" id="1_afs8h"]
@@ -7,6 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b83jseyiqe2d7" path="res://scenes/deathzone.tscn" id="4_67ovl"]
 [ext_resource type="Script" path="res://scripts/BrickSpawner.gd" id="6_nfv5h"]
 [ext_resource type="PackedScene" uid="uid://btveqa8c5kxqg" path="res://scenes/brick.tscn" id="7_tq8xj"]
+[ext_resource type="AudioStream" uid="uid://dld45a8gyafx0" path="res://music/ball on wall.wav" id="8_e4plf"]
+[ext_resource type="AudioStream" uid="uid://by4j3l738krh1" path="res://music/ball-on-paddle.wav" id="9_mvgah"]
+[ext_resource type="AudioStream" uid="uid://cmg2bx3irrs61" path="res://music/ball on brick.wav" id="10_mtukd"]
+[ext_resource type="AudioStream" uid="uid://bgcmgwty20tgb" path="res://music/game lost.wav" id="11_87lds"]
+[ext_resource type="AudioStream" uid="uid://bxacoj107wrph" path="res://music/game won.wav" id="12_0bud3"]
+[ext_resource type="AudioStream" uid="uid://c6fos3ka7kfvw" path="res://music/level-passed-143039.mp3" id="13_o13ig"]
+[ext_resource type="AudioStream" uid="uid://duq6ecch3q3pe" path="res://music/whoosh-6316.mp3" id="14_rfkqm"]
 
 [node name="main" type="Node"]
 
@@ -53,3 +60,26 @@ spawn_start = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -161)
+
+[node name="Music" type="Node" parent="."]
+
+[node name="ball on wall" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("8_e4plf")
+
+[node name="ball on paddle" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("9_mvgah")
+
+[node name="ball on brick" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("10_mtukd")
+
+[node name="game lost" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("11_87lds")
+
+[node name="game won" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("12_0bud3")
+
+[node name="level passed" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("13_o13ig")
+
+[node name="whoosh" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("14_rfkqm")

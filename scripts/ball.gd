@@ -17,6 +17,9 @@ var last_collider_id
 
 @onready var collision_shape_2d = $CollisionShape2D
 
+@onready var game_lost = $"../Music/game lost"
+
+
 
 
 func _ready():
@@ -48,6 +51,7 @@ func on_life_lost():
 	lifes -= 1
 	if lifes == 0:
 		ui.game_over()
+		game_lost.play()
 		
 	else:
 		life_lost.emit()
