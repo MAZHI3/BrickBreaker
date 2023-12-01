@@ -7,6 +7,7 @@ class_name UI
 @onready var level_won_container = $LevelWonContainer
 
 @onready var level_passed = $"../Music/level passed"
+@onready var game_lost = $"../Music/game lost"
 
 
 func set_lifes(lifes: int):
@@ -14,6 +15,7 @@ func set_lifes(lifes: int):
 
 func game_over():
 	game_lost_container.show()
+	game_lost.play()
 
 
 func _on_game_lost_button_pressed():

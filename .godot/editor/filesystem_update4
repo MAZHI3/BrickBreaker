@@ -1,3 +1,13 @@
 res://scenes/main.tscn
+res://scripts/Paddle.gd
+res://scenes/Paddle.tscn
+res://scenes/ball.tscn
+res://scenes/wall.tscn
+res://scenes/deathzone.tscn
+res://scenes/ui.tscn
+res://scenes/brick.tscn
+res://scenes/ball_trail.tscn
+res://scenes/explosion.tscn
+res://scripts/ball.gd
+res://scripts/BrickSpawner.gd
 res://scripts/level_definitions.gd
-res://scripts/ui.gd

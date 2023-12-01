@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqgipf32asj5"]
+
+[sub_resource type="Gradient" id="Gradient_mqepa"]
+offsets = PackedFloat32Array(0, 0.285185, 0.366667, 0.455556, 1)
+colors = PackedColorArray(0.31409, 0.169844, 0.513683, 1, 0.434619, 0.315719, 0.599138, 1, 0.469055, 0.357398, 0.623554, 1, 0.770234, 0.721915, 0.837094, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hqntf"]
+gradient = SubResource("Gradient_mqepa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_500ie"]
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 10.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 40.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_hqntf")
+hue_variation_min = 0.9
+hue_variation_max = 1.0
+
+[node name="ball trail" type="GPUParticles2D"]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_500ie")

@@ -17,15 +17,17 @@ var last_collider_id
 
 @onready var collision_shape_2d = $CollisionShape2D
 
-@onready var game_lost = $"../Music/game lost"
+@onready var ball_on_paddle = $"../Music/ball on paddle"
+@onready var ball_on_brick = $"../Music/ball on brick"
+@onready var ball_on_wall = $"../Music/ball on wall"
 
-
-
+@onready var explosion = $explosion
 
 func _ready():
 	ui.set_lifes(lifes)
 	start_position = position 
 	death_zone.life_lost.connect(on_life_lost)
+	explosion.emitting = false
 	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * ball_speed * delta)
@@ -35,11 +37,16 @@ func _physics_process(delta):
 	var collider = collision.get_collider()
 	if collider is Brick:
 		collider.decrease_level()
+		ball_on_brick.play()
+		explosion.emitting = true
 		
 	if (collider is Brick or collider is Paddle):
 		ball_collision(collider)
+		ball_on_paddle.play()
 	else:
 		velocity = velocity.bounce(collision.get_normal())
+		ball_on_wall.play()
+		explosion.emitting = true
 	
 func start_ball():
 	position = start_position
@@ -51,7 +58,6 @@ func on_life_lost():
 	lifes -= 1
 	if lifes == 0:
 		ui.game_over()
-		game_lost.play()
 		
 	else:
 		life_lost.emit()

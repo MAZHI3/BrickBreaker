@@ -14,6 +14,9 @@ var is_ball_started = false
 
 @onready var collision_shape_2d = $CollisionShape2D
 
+@onready var ball_trail = $"../Ball/ball trail"
+
+
 func _ready(): 
 	ball.life_lost.connect(on_ball_lost)
 	camera_rect = camera.get_viewport_rect()
@@ -43,6 +46,7 @@ func _input(event):
 	if direction != Vector2.ZERO && !is_ball_started:
 		ball.start_ball()
 		is_ball_started = true
+		ball_trail.emitting = true
 
 func on_ball_lost():
 	is_ball_started = false

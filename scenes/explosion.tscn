@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn05wtqf465bq"]
+
+[sub_resource type="Gradient" id="Gradient_e3086"]
+offsets = PackedFloat32Array(0.166667, 1)
+colors = PackedColorArray(0.282416, 0.0647454, 0.513612, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ksxs1"]
+gradient = SubResource("Gradient_e3086")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hwrns"]
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 1)
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_ksxs1")
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 4.79
+
+[node name="explosion" type="GPUParticles2D"]
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_hwrns")
+one_shot = true
+explosiveness = 0.4
